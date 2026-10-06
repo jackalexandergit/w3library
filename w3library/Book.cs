@@ -9,9 +9,50 @@ namespace w3library
 {
     public class Book
     {
-        public String Title;
-        public String Author;
-        public int ISBN;
+        // private fields
+
+        private string title;
+        private string author;
+        private int isbn;
+
+        // public properties
+
+        public string Title
+        {
+            get { return title; }  // get method
+            set { title = value; } // set method
+        }
+        public string Author
+        {
+            get { return author; }  // get method
+            set {
+                // Checks if any character in the incoming string is a digit
+                if (!value.Any(char.IsDigit))
+                {
+                    author = value;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Author name cannot contain numbers.");
+                }
+            }
+        }
+
+        public int ISBN
+        {
+            get { return isbn; }  // get method
+            set {
+                // Checks that the incoming int is not 0
+                if (value != 0)
+                {
+                    isbn = value;
+                }
+                else
+                {
+                    Console.WriteLine("Error: ISBN cannot be blank.");
+                }
+            }
+        }
 
         // paramaterised constructor
         public Book(string bookTitle, string bookAuthor, int bookISBN)
@@ -21,6 +62,7 @@ namespace w3library
             this.ISBN = bookISBN;
         }
 
+        // methods
         public void DisplayInfo()
         {
             Console.WriteLine($"Book Title: {Title}");
