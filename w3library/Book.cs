@@ -20,7 +20,18 @@ namespace w3library
         public string Title
         {
             get { return title; }  // get method
-            set { title = value; } // set method
+            set
+            {
+                // Checks if any character in the incoming string is a digit
+                if (!value.Any(char.IsDigit))
+                {
+                    title = value;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Title cannot contain numbers.");
+                }
+            }
         }
         public string Author
         {
@@ -42,8 +53,8 @@ namespace w3library
         {
             get { return isbn; }  // get method
             set {
-                // Checks that the incoming int is not 0
-                if (value != 0)
+                // Checks that the incoming int is not a string
+                if (value >0)
                 {
                     isbn = value;
                 }
