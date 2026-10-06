@@ -11,7 +11,15 @@ namespace w3library
     {
         public String Title;
         public String Author;
-        public String ISBN;
+        public int ISBN;
+
+        // paramaterised constructor
+        public Book(string bookTitle, string bookAuthor, int bookISBN)
+        {
+            this.Title = bookTitle;
+            this.Author = bookAuthor;
+            this.ISBN = bookISBN;
+        }
 
         public void DisplayInfo()
         {
